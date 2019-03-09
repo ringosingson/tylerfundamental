@@ -1,0 +1,67 @@
+1.npm init -y 
+
+-y - creating package.json file with all of the default configuration
+
+type vim package.json to open in the bash shell
+
+2.npm install react and react-dom
+3.vim .gitignore //and type node_modules/ //for vim i - is for insert for exit and save type esc after dat :wq enter
+
+4. mkdir app //creating a folder name app
+5. cd app and touch index.css and index.js //creating file use touch
+
+in index.js
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+require('index.css');
+
+class App extends React.Component{
+	render() {
+		return(
+           <div>
+              Hello Mr REACT
+           </div>
+			)
+	}
+}
+
+ReactDOM.render(
+    <App/>,
+    document.getElementById('app')
+	)
+
+	this line of code will not work directly
+
+6.npm install @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli webpack-dev-server babel-loader css-loader style-loader html-webpack-plugin --save-dev
+
+	   //hicheng install masat d 
+	   // --save-dev is devdependency for building
+
+7.create webpack.config.js file
+
+8. add and change in package.json file 
+   "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  }
+  "scripts": {
+    "create": "webpack"
+  },
+
+ 9.npm run create //creating dist folder and inside index.html template with script is created
+                        and index_bundle.js is created
+
+                        dist folder a um hi delete jongle hung nung umkit d npm run create i type phat
+
+ 
+
+
+
+
+
+
+
+
