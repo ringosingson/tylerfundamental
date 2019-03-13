@@ -56,7 +56,293 @@ ReactDOM.render(
 
                         dist folder a um hi delete jongle hung nung umkit d npm run create i type phat
 
- 
+ 10. change the script in package.json
+
+   "scripts": {
+    "start": "webpack-dev-server --open"
+  }
+   //abeilam joh nadi live sever for development (code nalheh a na save le website a ong ki lhengchet di)
+
+11.props-1 exercise
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+import "./styles.css";
+
+class Badge extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>
+          {this.props.name} <span>({this.props.username})</span>
+        </h1>
+        <img width="200px" height="200px" src={this.props.img} />
+      </div>
+    );
+  }
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+  <Badge
+    name="Ringo Singson"
+    username="ringosingson"
+    img="https://avatars1.githubusercontent.com/u/15993546?s=400&u=df3e33d3a1737531c7ebefe5c3b0fa4e971f4f5c&v=4"
+  />,
+  rootElement
+);
+
+12.props-2 exercise
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+import "./styles.css";
+
+var USER_DATA = {
+  name: "Ringo Singson",
+  username: "ringosingson",
+  img:
+    "https://avatars1.githubusercontent.com/u/15993546?s=400&u=df3e33d3a1737531c7ebefe5c3b0fa4e971f4f5c&v=4"
+};
+class Badge extends React.Component {
+  render() {
+    return (
+      <div>
+        <img src={this.props.user.img} />
+        <h1>Name: {this.props.user.name}</h1>
+        <h3>Username: {this.props.user.username}</h3>
+      </div>
+    );
+  }
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<Badge user={USER_DATA} />, rootElement);
+
+props-3 exercise
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+import "./styles.css";
+
+class Avatar extends React.Component {
+  render() {
+    return (
+      <img src={this.props.img}/>
+    )
+  }
+}
+
+class Label extends React.Component {
+  render() {
+    return (
+      <h1>Name:{this.props.name} </h1>
+    )
+  }
+}
+
+class ScreenName extends React.Component {
+  render() {
+    return (
+      <h3>Username: {this.props.username}<h3/>
+    )
+      }
+    }
+    
+class Badge extends React.Component {
+          render() {
+        return(
+        <div>
+        <Avatar img = {this.props.user.img}/>
+        <Label name= {this.props.user.name}/>
+        <ScreenName username= {this.props.user.username}/>
+        </div>
+    )
+      }
+}
+
+ReactDOM.render(<Badge user = {{
+          name: "Ringo Singson",
+          username: "ringosingson",
+          img: "https://avatars1.githubusercontent.com/u/15993546?s=400&u=df3e33d3a1737531c7ebefe5c3b0fa4e971f4f5c&v=4",
+        }} />, document.getElementById("root");
+
+
+props-4
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+import "./styles.css";
+
+class Users extends React.Component {
+  render() {
+    return(
+      <ul>
+          {this.props.list.map(function (name){
+            return <li>{name}</li>
+          })}
+      </ul> 
+    )
+  }
+}
+
+
+ReactDOM.render(
+  <Users list={['Ringo', 'Tonga', 'Monna', 'Lenna']
+   } />, document.getElementById("root")
+   );
+//study the pic .map .filter explaination
+
+
+props -5 exercise
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+require('./index.css');
+
+class Users extends React.Component {
+  render() {
+
+         var friends = this.props.list.filter(function(user) {
+             return user.friend === true
+           });
+
+         var nonFriends = this.props.list.filter(function(user) {
+             return user.friend !== true
+           });
+
+    return (
+      <div>
+         <h1>Friends</h1>
+         <ul>
+           {friends.map(function(user){
+            return <li key={user.name}>{user.name}</li>
+           })}
+         </ul>
+
+         <hr/>
+
+         <h1>Non Friends</h1>
+         <ul>
+           {nonFriends.map(function(user){
+            return <li key = {user.name}>{user.name}</li>
+           })}
+         </ul>
+
+      </div>
+      )
+  }
+}
+
+ReactDOM.render(
+  <Users list = {[
+         { name: "Ringo Singson", friend: true},
+         { name: "PAoa", friend: false},
+         { name: "Zoua", friend: true},
+         { name: "Monna", friend: false},
+         { name: "Lenna", friend: true},
+         { name: "Tonga", friend: false},
+         ]}
+    />,
+    document.getElementById('app')
+  );
+
+  //key man lou le error umdi  return <li key = {user.name}>{user.name}</li> like dis
+
+
+
+
+14.npm install --save prop-types
+
+class Badge extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>
+          {this.props.name} <span>({this.props.username})</span>
+        </h1>
+        <img width="200px" height="200px" src={this.props.img} />
+      </div>
+    );
+  }
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+  <Badge
+    name="Ringo Singson"
+    username="ringosingson"
+    img="https://avatars1.githubusercontent.com/u/15993546?s=400&u=df3e33d3a1737531c7ebefe5c3b0fa4e971f4f5c&v=4"
+  />,
+  rootElement
+);
+
+anuilang ReactDOM.render a img hi string lou a object a pass le props manthei tah lo di
+img={{image:"https://avatars1.githubusercontent.com/u/15993546?s=400&u=df3e33d3a1737531c7ebefe5c3b0fa4e971f4f5c&v=4"}}
+
+object a pass thei nadia prop-types kimang change the code
+
+class Badge extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>
+          {this.props.name} <span>({this.props.username})</span>
+        </h1>
+        <img width="200px" height="200px" src={this.props.img} />
+      </div>
+    );
+  }
+}
+
+Badge.propTypes = { //proptypes is object
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+  <Badge
+    name="Ringo Singson"
+    username="ringosingson"
+   img={"https://avatars1.githubusercontent.com/u/15993546?s=400&u=df3e33d3a1737531c7ebefe5c3b0fa4e971f4f5c&v=4"} //string a pass di
+  />,
+  rootElement
+);
+
+error lhom na dia kimang alhang pia,
+
+proptypes let us know what the component should look like, array is pass or string or etc
+
+read the official proptypes doc
+
+eposode 6.this keyword in javascript
+read in mdm  
+1.implicit binding
+2.explicit binding
+3.new binding
+4.window binding
+
+implicit binding
+where the this keyword is use
+look to the left of the dot that is where it is invoke
+
+
+explicit binding
+    .call- immediately invoke and one by one
+    .apply- in array
+    .bind- same as .call but return brand new function that u can invoke later
+
+new binding
+with new new object is constructed
+
+window binding
+this keyword bind to the window object
 
 
 
