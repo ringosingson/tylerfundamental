@@ -344,6 +344,13 @@ with new new object is constructed
 window binding
 this keyword bind to the window object
 
+16.creating state so that we can know the current state we are in
+java name le asan a um aban le anui a result show..iumna mun same page
+
+
+this keyword kimang hi achom chom render nuichet sunga pa khu   chom return sunga pa chom function umjeh a
+achung lang bind to kisun khu..render lou pa this achom ako
+
 
 
 
