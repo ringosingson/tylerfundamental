@@ -354,6 +354,156 @@ achung lang bind to kisun khu..render lou pa this achom ako
 episode 11.
 npm install --save axios
 
+hichan hi na show thei interview
+
+episode 12
+npm install --save react-router-dom
+in App.js add
+var ReactRouter = require("react-router-dom");
+var Router = ReactRouter.BrowserRouter;
+var Route = ReactRouter.Route;
+var Nav = require("./Nav");
+
+and same in App.js
+
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div className="container">
+          <Nav />
+          <Route path="/popular" component={Popular} />
+        </div>
+      </Router>
+    );
+  }
+}
+
+router sunga koi di path sep nadia abanle component a kou tho di
+
+create new file Nav.js in components and code --
+var React = require("react");
+var NavLink = require("react-router-dom").NavLink;
+
+function Nav() {
+  return (
+    <ul className="nav">
+      <li>
+        <NavLink exact activeClassName="active" to="/"> //exact property hi home bold lou nadia                                                   kimang amun a umlou phat
+         Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName="active" to="/battle">
+          Battle
+        </NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName="active" to="/popular">
+          Popular
+        </NavLink>
+      </li>
+    </ul>
+  );
+}
+
+module.exports = Nav;
+
+
+abanle css a 
+
+.nav {
+  display: flex;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.nav li {
+  margin-right: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #d0021b;
+}
+
+now create a new file Home.js in component and code
+
+var React = require("react");
+var Link = require("react-router-dom").Link;
+
+class Home extends React.Component {
+  render() {
+    return (
+      <div className="home-container">
+        <h1>Github Battle: Battle your friends...and stuff.</h1>
+        <Link className="button" to="/battle">
+          Battle
+        </Link>
+      </div>
+    );
+  }
+}
+
+module.exports = Home;
+
+and add require in App.js
+
+<Route exact path="/" component={Home} /> (dont forget exact in the component)
+
+and in css
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  color: #e6e6e6;
+  background: #0a0a0a;
+  border: none;
+  font-size: 16px;
+  border-radius: 3px;
+  width: 200px;
+  text-align: center;
+  display: block;
+  padding: 7px 0;
+  margin: 10px auto;
+}
+
+.button:hover:enabled {
+  background: linear-gradient(#1a1a1a, #0a0a0a);
+  color: #fff;
+  text-decoration: none;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+important(page khat  nalut a na refresh le theilodi)
+
+so go to webpack.config.js and change
+just above plugin add
+ devServer: {
+    historyApiFallback: true
+  },
+and inside output add 
+ publicPath: "/"
+
+ we use Switch in App.js becoz page umlou type phat le page not found sut nadia
+ route a function umkhu component dang sut ngailou a amuna sut jeng thei. beilam
+
+ battle path ajong exact koi di
+
+
+
+
+
+
 
 
 
