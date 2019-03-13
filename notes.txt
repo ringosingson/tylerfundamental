@@ -351,6 +351,11 @@ java name le asan a um aban le anui a result show..iumna mun same page
 this keyword kimang hi achom chom render nuichet sunga pa khu   chom return sunga pa chom function umjeh a
 achung lang bind to kisun khu..render lou pa this achom ako
 
+episode 11.
+npm install --save axios
+
+
+
 
 
 
