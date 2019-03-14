@@ -500,6 +500,10 @@ and inside output add
  battle path ajong exact koi di
 
  episode 13.
+
+
+ episode 16.
+ npm install --save query-string
  
 
 
